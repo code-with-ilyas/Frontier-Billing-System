@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('admin_assets/img/favicon.ico') }}" rel="icon">
+    <link href="{{ asset('admin_assets/img/invoice.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,32 +92,67 @@
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav me-auto">
 
+                        <!-- 🔹 Customer Dropdown -->
                         <div class="nav-item dropdown">
-                            <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Customer</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Customer</a>
                             <div class="dropdown-menu bg-light m-0">
-                                <a href="{{ url('customers/create') }}" class="dropdown-item">Add New Customer</a>
-                                <a href="{{ url('head') }}" class="dropdown-item">Head</a>
-                                <a href="{{ url('customers') }}" class="dropdown-item">Customers List</a>
+                                <!-- <a href="{{ route('customers.create') }}" class="dropdown-item fw-bold text-dark">Add New Customer</a>
+                                <a href="{{ route('customers.index') }}" class="dropdown-item fw-bold text-dark">Customers List</a> -->
+                                <a href="{{ route('vehicles.create') }}" class="dropdown-item fw-bold text-dark">Add Customers & Vehicle Names</a>
+                                <a href="{{ route('vehicles.index') }}" class="dropdown-item fw-bold text-dark">Vehicles & Customers List</a>
+                                <a href="{{ route('heads.create') }}" class="dropdown-item fw-bold text-dark">Add Heads</a>
+                            </div>
+                        </div>
+
+                        <!-- 🔹 Product Dropdown -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+                            <div class="dropdown-menu bg-light m-0">
+                                <a href="{{ route('products.create') }}" class="dropdown-item fw-bold text-dark">Add New Products</a>
+                                <a href="{{ route('products.index') }}" class="dropdown-item fw-bold text-dark">Products List</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Daily Sale</a>
+                            <div class="dropdown-menu bg-light m-0">
+                                <a href="{{ route('sales.create') }}" class="dropdown-item fw-bold text-dark">Add New Sale</a>
+                                <a href="{{ route('sales.index') }}" class="dropdown-item fw-bold text-dark">Sales List</a>
+                            </div>
+                        </div>
+
+                        <!-- 🔹 Reports Dropdown -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Reports</a>
+                            <div class="dropdown-menu bg-light m-0">
+                                <a href="{{ route('sales.form') }}" class="dropdown-item fw-bold text-dark ">Daily Reports Of Bills</a>
+                                <a href="{{ route('sales.report') }}" class="dropdown-item fw-bold text-dark">Generate Bills For Customer Name</a>
+                                <a href="{{ route('vehicle.bills') }}" class="dropdown-item fw-bold text-dark">Generate Bills For Vehicle Name</a>
+                                <a href="{{ route('saved.bills') }}" class="dropdown-item fw-bold text-dark">Generated Bills Saved History</a>
+                                <a href="{{ route('heads.report') }}" class="dropdown-item fw-bold text-dark">Heads & Products Reports</a>
                             </div>
                         </div>
 
                     </div>
-                    <!-- 🔹 Logout Button Added -->
+
+                    <!-- 🔹 Logout Button -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="btn btn-warning rounded-pill px-4">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </button>
-
                     </form>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
+
+
 
     {{ $slot }}
 
